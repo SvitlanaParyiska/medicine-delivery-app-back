@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const shopsRouter = require("./routes/api/shops");
+const shopsListRouter = require("./routes/api/allShops");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.use("/shops", shopsRouter);
+app.use("/shopsList", shopsListRouter);
 
 app.use((_, res) => {
   res.status(404).json({ message: "Route not found" });
