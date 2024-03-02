@@ -4,7 +4,6 @@ const cors = require("cors");
 require("dotenv").config();
 
 const shopsRouter = require("./routes/api/shops");
-const shopsListRouter = require("./routes/api/allShops");
 const cartRouter = require("./routes/api/cart");
 
 const app = express();
@@ -17,7 +16,6 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.use("/shops", shopsRouter);
-app.use("/shopsList", shopsListRouter);
 app.use("/cart", cartRouter);
 
 app.use((_, res) => {
