@@ -1,12 +1,12 @@
-const AllShop = require("../models/allShops");
+const AllShops = require("../models/allShops");
 const { ctrlWrapper, HttpError } = require("../helpers");
 
 const getAllShopsList = async (req, res) => {
-  const results = await AllShop.find();
-  if (!results) {
+  const result = await AllShops.find({ list: "Shops" });
+  if (!result) {
     throw HttpError(404, "Not found");
   }
-  res.json(results[0].allShopsList);
+  res.json(result[0].allShopsList);
 };
 
 module.exports = {

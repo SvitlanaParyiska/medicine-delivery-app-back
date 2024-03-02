@@ -7,6 +7,6 @@ const allShopSchema = new Schema({
   },
 });
 
-const AllShop = model("allshop", allShopSchema);
+const AllShops = model("allshop", allShopSchema);
 
-module.exports = AllShop;
+module.exports = AllShops;
