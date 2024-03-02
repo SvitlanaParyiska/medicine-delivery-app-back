@@ -5,7 +5,12 @@ const { ctrlWrapper, HttpError } = require("../helpers");
 const getDrugsByShop = async (req, res) => {
   const { filter } = req.query;
   const validSearch = decodeURIComponent(filter);
-  const results = await Shop.find({ ShopName: validSearch });
+  const searchConditions = {};
+  if (filter) {
+    searchConditions.ShopName = validSearch;
+    console.log(searchConditions);
+  }
+  const results = await Shop.find(searchConditions);
   if (!results) {
     throw HttpError(404, "Not found");
   }
