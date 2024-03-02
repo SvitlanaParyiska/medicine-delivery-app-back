@@ -5,7 +5,7 @@ const shopSchema = new Schema({
     type: String,
     required: true,
   },
-  Drugs: [{ type: String, default: "" }],
+  Drugs: [{ DrugName: String, Price: String, imgURL: String }],
 });
 
 const Shop = model("shop", shopSchema);
