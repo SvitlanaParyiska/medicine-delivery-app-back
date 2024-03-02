@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const shopSchema = new Schema({
-  ShopName: {
+  shopName: {
     type: String,
     required: true,
   },
-  Drugs: [{ DrugName: String, Price: String, imgURL: String }],
+  drugs: [{ drugName: String, price: String, imgURL: String }],
 });
 
 const Shop = model("shop", shopSchema);
