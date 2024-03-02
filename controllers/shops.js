@@ -7,7 +7,7 @@ const getDrugsByShop = async (req, res) => {
   const validSearch = decodeURIComponent(filter);
   const searchConditions = {};
   if (filter) {
-    searchConditions.ShopName = validSearch;
+    searchConditions.shopName = validSearch;
   }
   const results = await Shop.find(searchConditions);
   if (!results) {
