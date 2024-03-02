@@ -8,7 +8,6 @@ const getDrugsByShop = async (req, res) => {
   const searchConditions = {};
   if (filter) {
     searchConditions.ShopName = validSearch;
-    console.log(searchConditions);
   }
   const results = await Shop.find(searchConditions);
   if (!results) {

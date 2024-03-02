@@ -5,10 +5,7 @@ const shopSchema = new Schema({
     type: String,
     required: true,
   },
-  Drugs: {
-    type: Array,
-    required: true,
-  },
+  Drugs: [{ type: String, default: "" }],
 });
 
 const Shop = model("shop", shopSchema);

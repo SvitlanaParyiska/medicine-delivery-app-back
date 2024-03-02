@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const allShopSchema = new Schema({
   allShopsList: {
-    type: Array,
+    type: [String],
     required: true,
   },
 });
