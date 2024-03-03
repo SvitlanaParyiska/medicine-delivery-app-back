@@ -19,7 +19,7 @@ const cartSchema = new Schema(
             required: true,
           },
           imgURL: {
-            type: Number,
+            type: String,
             required: true,
           },
         },
