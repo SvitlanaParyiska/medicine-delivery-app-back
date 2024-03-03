@@ -11,6 +11,22 @@ const cartSchema = new Schema(
       type: Number,
       required: [true, "totalPrice is required"],
     },
+    name: {
+      type: String,
+      required: [true, "name is required"],
+    },
+    email: {
+      type: String,
+      required: [true, " email is required"],
+    },
+    phone: {
+      type: Number,
+      required: [true, " phone is required"],
+    },
+    address: {
+      type: String,
+      required: [true, " email is required"],
+    },
   },
   { versionKey: false, timestamps: true }
 );
@@ -27,6 +43,18 @@ const addCartSchema = Joi.object({
   }),
   totalPrice: Joi.number().required().messages({
     "any.required": "totalPrice is required",
+  }),
+  name: Joi.string().required().messages({
+    "any.required": "name is required",
+  }),
+  email: Joi.string().required().messages({
+    "any.required": "email is required",
+  }),
+  phone: Joi.number().required().messages({
+    "any.required": "phone is required",
+  }),
+  address: Joi.string().required().messages({
+    "any.required": "address is required",
   }),
 });
 
