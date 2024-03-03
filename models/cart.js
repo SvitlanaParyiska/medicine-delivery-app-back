@@ -70,13 +70,13 @@ const addCartSchema = Joi.object({
           "any.required": "missing required quantity field",
         }),
         imgURL: Joi.string().required().messages({
-          "any.required": "imgURL required quantity field",
+          "any.required": "missing required imgURL field",
         }),
       })
     )
     .required()
     .messages({
-      "any.required": "missing required orderMedicines field",
+      "any.required": "missing required drugsList field",
     }),
   totalPrice: Joi.number().required().messages({
     "any.required": "totalPrice is required",
