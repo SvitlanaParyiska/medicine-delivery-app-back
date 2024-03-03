@@ -4,7 +4,22 @@ const handleMongooseError = require("../helpers/handleMongooseError");
 const cartSchema = new Schema(
   {
     drugsList: {
-      type: Array,
+      type: [
+        {
+          drugName: {
+            type: String,
+            required: true,
+          },
+          price: {
+            type: Number,
+            required: true,
+          },
+          total: {
+            type: Number,
+            required: true,
+          },
+        },
+      ],
       required: [true, "drugs list is required"],
     },
     totalPrice: {
@@ -38,9 +53,24 @@ const Cart = model("cart", cartSchema);
 const Joi = require("joi");
 
 const addCartSchema = Joi.object({
-  drugsList: Joi.array().required().messages({
-    "any.required": "drugsList is required",
-  }),
+  drugsList: Joi.array()
+    .items(
+      Joi.object({
+        drugName: Joi.string().required().messages({
+          "any.required": "missing required drugName field",
+        }),
+        price: Joi.number().required().messages({
+          "any.required": "missing required price field",
+        }),
+        total: Joi.number().required().messages({
+          "any.required": "missing required total field",
+        }),
+      })
+    )
+    .required()
+    .messages({
+      "any.required": "missing required orderMedicines field",
+    }),
   totalPrice: Joi.number().required().messages({
     "any.required": "totalPrice is required",
   }),

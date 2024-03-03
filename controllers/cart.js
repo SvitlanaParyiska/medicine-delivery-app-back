@@ -1,5 +1,5 @@
 const { Cart } = require("../models/cart");
-const { ctrlWrapper, HttpError } = require("../helpers");
+const { ctrlWrapper } = require("../helpers");
 
 const addCart = async (req, res) => {
   const result = await Cart.create({ ...req.body });
